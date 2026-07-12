@@ -398,6 +398,18 @@ function createParticles() {
     }
 }
 
+// Shooting Star
+const overlay = document.querySelector('.overlay');
+for(let i=0;i<6;i++){
+    const m=document.createElement("div");
+    m.className="shooting";
+    m.style.left=Math.random()*100+"vw";
+    m.style.top=Math.random()*50+"vh";
+    m.style.animationDelay=(Math.random()*5)+"s";
+    m.style.animationDuration=(3+Math.random()*4)+"s";
+    overlay.appendChild(m);
+}
+
 setInterval(createParticles, 1500);
 createParticles();
 </script>
