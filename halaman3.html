@@ -6,6 +6,262 @@
 <title>❤️ Pertanyaan Terakhir ❤️</title>
 
 <style>
+/* ================= PREMIUM OVERLAY ================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+/* Aurora */
+
+.overlay::before{
+    content:"";
+    position:absolute;
+    width:160%;
+    height:160%;
+    left:-30%;
+    top:-30%;
+
+    background:
+    radial-gradient(circle,#ffffff30 0%,transparent 40%),
+    radial-gradient(circle,#ff94c833 20%,transparent 55%),
+    radial-gradient(circle,#ffd6ec22 40%,transparent 70%);
+
+    animation:aurora 18s linear infinite;
+    filter:blur(80px);
+}
+
+@keyframes aurora{
+
+0%{
+transform:rotate(0deg) scale(1);
+}
+
+50%{
+transform:rotate(180deg) scale(1.2);
+}
+
+100%{
+transform:rotate(360deg) scale(1);
+}
+
+}
+
+/* Sakura */
+
+.sakura{
+position:absolute;
+top:-50px;
+animation:sakuraFall linear infinite;
+filter:
+drop-shadow(0 0 8px #ffd6ea);
+}
+
+@keyframes sakuraFall{
+
+0%{
+transform:
+translateY(-50px)
+translateX(0)
+rotate(0deg);
+}
+
+50%{
+transform:
+translateY(50vh)
+translateX(60px)
+rotate(360deg);
+}
+
+100%{
+transform:
+translateY(120vh)
+translateX(-60px)
+rotate(720deg);
+}
+
+}
+
+/* Love */
+
+.love{
+
+position:absolute;
+
+bottom:-50px;
+
+color:#fff;
+
+opacity:.8;
+
+animation:loveUp linear infinite;
+
+filter:
+drop-shadow(0 0 10px #ff78ae);
+
+}
+
+@keyframes loveUp{
+
+0%{
+transform:translateY(0) scale(.5);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+transform:
+translateY(-120vh)
+scale(1.6);
+opacity:0;
+}
+
+}
+
+/* Bubble */
+
+.bubble{
+
+position:absolute;
+
+bottom:-50px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.15);
+
+border:
+1px solid rgba(255,255,255,.35);
+
+backdrop-filter:blur(5px);
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.2),
+
+inset 0 0 12px rgba(255,255,255,.4);
+
+animation:bubbleUp linear infinite;
+
+}
+
+@keyframes bubbleUp{
+
+100%{
+
+transform:
+translateY(-120vh)
+scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+/* Star */
+
+.star{
+
+position:absolute;
+
+width:3px;
+
+height:3px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 10px white,
+
+0 0 20px white;
+
+animation:twinkle 2s infinite;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+
+opacity:.2;
+
+transform:scale(.6);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(2);
+
+}
+
+}
+
+/* Shooting Star */
+
+.shooting{
+
+position:absolute;
+
+width:120px;
+
+height:2px;
+
+background:
+linear-gradient(90deg,#fff,transparent);
+
+transform:rotate(-30deg);
+
+animation:meteor 4s linear infinite;
+
+opacity:.7;
+
+}
+
+@keyframes meteor{
+
+0%{
+
+transform:
+translate(-200px,-200px)
+rotate(-30deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translate(140vw,140vh)
+rotate(-30deg);
+
+opacity:0;
+
+}
+
+}
+
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -21,6 +277,7 @@ body{
     linear-gradient(135deg,#ff5fa2,#ff77b7,#ff8fc8);
 
     color:white;
+    position:relative;
 }
 
 .card{
@@ -41,7 +298,11 @@ body{
     box-shadow:
     0 20px 50px rgba(255,0,120,.25),
     inset 0 0 20px rgba(255,255,255,.15);
+    
+    position:relative;
+    z-index:2;
 }
+
 button{
     padding:14px 35px;
     border:none;
@@ -58,6 +319,7 @@ button{
     cursor:pointer;
 
     transition:.3s;
+    margin: 10px;
 }
 
 button:hover{
@@ -83,6 +345,8 @@ box-shadow:0 0 25px #ff7bb7;
 
 <body>
 
+<div class="overlay"></div>
+
 <div class="card">
 
 <h2>❤️ Pertanyaan Terakhir ❤️</h2>
@@ -104,6 +368,18 @@ Kalau kamu belum siap, tidak apa-apa. 😊
 
 <script>
 
+document.getElementById("yes").onclick=function(){
+
+    const nomor="6282185052636";
+
+    const pesan=encodeURIComponent(
+        "illoveyou too ❤️❤️"
+    );
+
+    window.location.href=`https://wa.me/${nomor}?text=${pesan}`;
+
+}
+
 const no=document.getElementById("no");
 
 no.addEventListener("mouseover",()=>{
@@ -114,23 +390,53 @@ no.addEventListener("mouseover",()=>{
 
 });
 
-document.getElementById("yes").onclick=function(){
-
-    const nomor="6282185052636"; // Ganti dengan nomor WhatsApp kamu
-
-    const pesan=encodeURIComponent(
-        "illoveyou too ❤️❤️"
-    );
-
-    window.location.href=`https://wa.me/${nomor}?text=${pesan}`;
-
-}
-
-document.getElementById("no").onclick=function(){
+no.addEventListener("click",()=>{
 
     alert("Tidak apa-apa 😊 Terima kasih sudah membaca sampai akhir.");
 
+});
+
+// Generate random particles
+function createParticles() {
+    const overlay = document.querySelector('.overlay');
+    const particleTypes = ['sakura', 'love', 'bubble', 'star', 'shooting'];
+    
+    for(let i = 0; i < 3; i++) {
+        const type = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+        const element = document.createElement('div');
+        element.className = type;
+        
+        if(type === 'sakura') {
+            element.innerHTML = '🌸';
+            element.style.left = Math.random() * 100 + '%';
+            element.style.animationDuration = (8 + Math.random() * 4) + 's';
+        } else if(type === 'love') {
+            element.innerHTML = '❤️';
+            element.style.left = Math.random() * 100 + '%';
+            element.style.animationDuration = (3 + Math.random() * 2) + 's';
+        } else if(type === 'bubble') {
+            element.style.left = Math.random() * 100 + '%';
+            element.style.width = (10 + Math.random() * 20) + 'px';
+            element.style.height = element.style.width;
+            element.style.animationDuration = (4 + Math.random() * 3) + 's';
+        } else if(type === 'star') {
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = Math.random() * 100 + '%';
+            element.style.animationDuration = (2 + Math.random() * 1) + 's';
+        } else if(type === 'shooting') {
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = Math.random() * 100 + '%';
+            element.style.animationDuration = (3 + Math.random() * 2) + 's';
+        }
+        
+        overlay.appendChild(element);
+        
+        setTimeout(() => element.remove(), 10000);
+    }
 }
+
+setInterval(createParticles, 1500);
+createParticles();
 
 </script>
 
