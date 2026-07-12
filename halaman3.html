@@ -380,6 +380,43 @@ box-shadow:0 0 25px #ff7bb7;
 
 }
 </style>
+
+<script>
+
+const noBtn=document.getElementById("no");
+
+function kabur(){
+
+    const maxX=window.innerWidth-noBtn.offsetWidth-20;
+
+    const maxY=window.innerHeight-noBtn.offsetHeight-20;
+
+    const x=Math.random()*maxX;
+
+    const y=Math.random()*maxY;
+
+    noBtn.style.position="fixed";
+
+    noBtn.style.left=x+"px";
+
+    noBtn.style.top=y+"px";
+
+}
+
+noBtn.addEventListener("mouseover",kabur);
+
+noBtn.addEventListener("touchstart",function(e){
+
+    e.preventDefault();
+
+    kabur();
+
+});
+
+noBtn.addEventListener("click",kabur);
+
+</script>
+
 </head>
 
 <body>
