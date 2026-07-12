@@ -330,15 +330,54 @@ box-shadow:0 0 25px #ff7bb7;
 
 }
 
+.button-group{
+    position:relative;
+    width:100%;
+    height:140px;
+}
+
 #yes{
-    background:#ff2d75;
+    position:absolute;
+    left:40px;
+    bottom:20px;
+
+    padding:14px 30px;
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#ff2d75,#ff6aa9);
+
     color:white;
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
 }
 
 #no{
-    position:relative;
-    background:white;
-    color:#ff2d75;
+
+    position:absolute;
+
+    right:40px;
+
+    top:20px;
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#777;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.15s;
+
 }
 </style>
 </head>
@@ -361,8 +400,10 @@ tekan tombol <b>Iya ❤️</b>.
 Kalau kamu belum siap, tidak apa-apa. 😊
 </p>
 
-<button id="yes">Iya ❤️</button>
-<button id="no">gamauu 😊</button>
+<div class="button-group">
+    <button id="yes">Iya ❤️</button>
+    <button id="no">Gamau 😔</button>
+</div>
 
 </div>
 
